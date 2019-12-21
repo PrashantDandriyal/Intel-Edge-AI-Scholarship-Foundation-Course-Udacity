@@ -1,0 +1,5 @@
+(venv) root@58e63e884322:/home/workspace# python /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name human-pose-estimation-0001 -o /home/workspace/
+
+(venv) root@58e63e884322:/home/workspace# python /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name vehicle-attributes-recognition-on-barrier-0039 --precision INT8 -o /home/workspace/
+
+(venv) root@58e63e884322:/home/workspace# python /opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/downloader.py --name text-detection-0004 --precision FP16 -o /home/workspace/
