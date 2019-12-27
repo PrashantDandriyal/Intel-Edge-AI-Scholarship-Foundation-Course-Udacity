@@ -45,8 +45,11 @@ def load_to_IE(model_xml):
     
     ### TODO: Check for any unsupported layers, and let the user
     ###       know if anything is missing. Exit the program, if so.
-    unsupp_layers = ie.query_network(network=net, device_name="CPU")
-    print("\nTHE UNSUPPORTED LAYERS ARE: " + str(unsupp_layers))
+    unsupported_layers = [l for l in net.layers.keys() if l not in supp_layers]
+    if len(unsupported_layers) != 0:
+        print("Unsupported layers found: {}".format(unsupported_layers))
+        print("Check whether extensions are available to add to IECore.")
+        exit(1)
     
     ### TODO: Load the network into the Inference Engine
     exec_net = plugin.load(network=net)
@@ -63,3 +66,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
