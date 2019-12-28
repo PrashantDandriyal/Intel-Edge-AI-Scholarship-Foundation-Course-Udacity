@@ -1,4 +1,6 @@
-###Use Command: python test.py
+###Run command: python test.py
+##Documentation used: https://docs.openvinotoolkit.org/latest/_inference_engine_ie_bridges_python_docs_api_overview.html#layerstats-class
+##Observations here: https://inteledgeaichallenge.slack.com/archives/DRKLV6VCZ/p1577536272000200
 
 import argparse
 import cv2
@@ -28,21 +30,27 @@ def get_args():
 def async_inference(exec_net, input_blob, image):
     ### TODO: Add code to perform asynchronous inference
     ### Note: Return the exec_net
-    exec_net.start_async(request_id=0, inputs={input_blob: image})
+    infer_request_handle = exec_net.start_async(request_id=0, inputs={input_blob: image})
     while True:
         status = exec_net.requests[0].wait(-1)
         if status == 0:
             break
         else:
             time.sleep(1)
-    return exec_net
+    print(infer_request_handle.outputs.keys())
+    #print(infer_request_handle)     #InferRequest object
+    return exec_net                 #ExecutableNetwork object
+    
 
 
 def sync_inference(exec_net, input_blob, image):
     ### TODO: Add code to perform synchronous inference
     ### Note: Return the result of inference
     res = exec_net.infer({input_blob: image})
-    #np.flip(np.sort(np.squeeze(res)),0)
+    
+    #print("in sync" + str(res))     #An array
+    #print(exec_net)                 #ExecutableNetwork object
+    print(res.keys())
     return res
 
 
