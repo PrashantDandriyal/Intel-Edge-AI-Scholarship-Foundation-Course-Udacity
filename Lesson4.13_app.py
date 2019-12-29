@@ -1,4 +1,18 @@
 #app.py
+'''
+These are the commands I used :
+*Pre-requisites (read here: https://inteledgeaichallenge.slack.com/archives/DRKLV6VCZ/p1577608434001200)
+wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+
+tar -xvzf ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+
+
+python3 /opt/intel/openvino/deployment_tools/model_optimizer/mo_tf.py --input_model /home/workspace/ssd_mobilenet_v2_coco_2018_03_29/frozen_inference_graph.pb --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json --tensorflow_object_detection_api_pipeline_config /home/workspace/ssd_mobilenet_v2_coco_2018_03_29/pipeline.config
+* Final Run command
+python app.py -m frozen_inference_graph.xml -i test_video.mp4 -con 0.3 -col r
+
+'''
+
 import argparse
 import cv2
 import os
