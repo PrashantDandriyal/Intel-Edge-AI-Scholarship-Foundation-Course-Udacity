@@ -30,6 +30,7 @@ def capture_stream(args):
     #If video file
     if args.i.endswith('.mp4'):  
         video_flag = True         #Doing this for separating methods to write a video file later
+        out = cv2.VideoWriter('out.mp4', 0x00000021, 30, (100,100)) #Note: do this outside the loop, its to be only once
     #If image file
     elif args.i.endswith('jpg'):
         pass
@@ -61,8 +62,7 @@ def capture_stream(args):
         
         ### TODO: Write out the frame, depending on image or video
         if video_flag: 
-            #Create a video writer #Note
-            out = cv2.VideoWriter('out.mp4', 0x00000021, 30, frame_with_edges.shape)
+            #Create a video writer 
             out.write(img_array_1)
         else:
             cv2.imwrite('output_img.jpg', img_array_1)
@@ -86,3 +86,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
