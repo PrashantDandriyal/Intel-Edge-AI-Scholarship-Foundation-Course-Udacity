@@ -1,3 +1,4 @@
+:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:,:memo:
 ### Edge Application
 Applications with inference run on local hardware, sometimes without network connections, such as Internet of Things (IoT) devices, as opposed to the cloud. Less data needs to be streamed over a network connection, and real-time decisions can be made.
 
